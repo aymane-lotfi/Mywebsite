@@ -1,4 +1,6 @@
+jQuery(document).ready(function(){
 // Define some colours
+
 var colours = [
     "red",
     "orange",
@@ -12,7 +14,7 @@ var colours = [
 var text = $("h1").html().split(" ");
 
 // Empty the elment
-$("p").empty();
+$("h1").empty();
 
 // Iterate over the words
 $.each(text, function(i, word) {
@@ -27,4 +29,5 @@ $.each(text, function(i, word) {
         .html(word)
         .css("color", colours[colourIndex])
         .appendTo($("h1"));
+});
 });

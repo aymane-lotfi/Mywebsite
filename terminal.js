@@ -1,11 +1,11 @@
 
 $(function() {
     $('.prompt').html('root@aymane-lotfi:~# ');
-	
+
 
   var term = new Terminal('#input-line .cmdline', '#container output');
   term.init();
-  
+
 });
 
 var util = util || {};
@@ -21,9 +21,9 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   var output_ = document.querySelector(outputContainer);
 
   const CMDS_ = [
-    'whoami', 'education', 'dreams', 'programming', 'interests', 'contact',  'clear', 'help' 
+    'whoami', 'education', 'dreams', 'programming', 'interests', 'contact',  'clear', 'help', 'picture' 
   ];
-  
+
   var fs_ = null;
   var cwd_ = null;
   var history_ = [];
@@ -109,7 +109,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           this.value = '';
           return;
         case 'help':
-          var result = "<h2>Help</h2><p><b>whoami</b>: display all my information.<br><b>education</b>: display all my information about my education.<br><b>dreams</b>: display all my information about my achievements in dreams.<br><b>programming</b>: display all my information about my achievements in programming.<br><b>interests</b>: display all my interests.<br><b>contact</b>: Say hi<br><b>blog</b>: Link of my blog<br><b>clear</b>: clear terminal<br><b>help</b>: display this menu.</p>";
+          var result = "<h2>Help</h2><p><b>whoami</b>: display all my information.<br><b>education</b>: display all my information about my education.<br><b>picture</b>: display my personal picture.<br><b>dreams</b>: display all my information about my achievements in dreams.<br><b>programming</b>: display all my information about my achievements in programming.<br><b>interests</b>: display all my interests.<br><b>contact</b>: Say hi<br><b>blog</b>: Link of my blog<br><b>clear</b>: clear terminal<br><b>help</b>: display this menu.</p>";
           output(result);
           break;
         case 'education':
@@ -124,12 +124,12 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           var result = "<h3>Competitive Programmer</h3><p>1th Place in the LegalHack Hackathon  2018 with my team \"LADCHAIN\"<br>Laureate of the Hack&Pitch hackathon by building an app which help people to drop smoking based on the blockchain<br><br>buid an Operating System based on Android<br>Build more than 25 android and iOs<br>More projects on my <a href=\"https://github.com/aymane-lotfi\">Github</a></p>";
           output(result);
           break;
-        case 'interests': 
+        case 'interests':
           var result = "<h3>Interests</h3><p>Algorithms, Data Structures, Problem Solving, Maths , Football, Literature, Communication,  Internet of Things , Machine Learning , Cloud Computing , Geometry , Big Data , Open Source Technologies...</p>";
           output(result);
           break;
         case 'blog':
-          var result = "<h3> <a href=\"http://aymane.tk/\">Blog</a></h3>";
+          var result = "<h3> (In construction)<a href=\"http://aymane.tk/\">Blog</a></h3>";
           output(result);
           break;
         case 'contact':
@@ -138,7 +138,11 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           break;
         case 'whoami':
           var result = "<h1>Aymane Lotfi</h1><p>Programmer and dreams Researcher</p><p>I am 16 years old . I am studying in Jaafar Alfassi . I am from Casablanca, interested in Algorithms Maths and Machine Learning"
-          output(result);
+         output(result);
+          break;
+		  case 'picture':
+          var result = "<img src=aymane.jpg> </img>";
+         output(result);
           break;
             default:
           if (cmd) {
@@ -188,8 +192,10 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
   //
   return {
     init: function() {
-      output('<h1>Aymane Lotfi</h1><h3>Programmer and dreams Researcher<br>I regulary share my thoughts on my blog: <a href=\"https://aymane.tk/\https://aymane.tk"></a></h3><p>Enter "help" for more information.</p><p> -- This website is built with love <3</p>');
+      output('<h1>Aymane Lotfi</h1><h3>Programmer and dreams Researcher<br>I am living in Morocco</a></h3><p>Enter "help" for more information.</p><p> -- This website is built with love <3</p>');
     },
+
     output: output
   }
+
 };
